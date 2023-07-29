@@ -6,6 +6,7 @@ from scipy import interpolate
 import seaborn as sns
 
 df = pd.read_excel(r"C:\Users\Felipe\DIAGNOSTICOS.xlsx")
+# df = pd.read_excel(r"C:\Users\fmour\Documents\MEGAsync Downloads\Documentos\Mestrado\DIAGNOSTICOS.xlsx")
 
 df['Dia'] = pd.to_datetime(df['Registro']).dt.day_name()
 
@@ -14,7 +15,6 @@ pd.set_option('display.max_colwidth', None)
 pd.set_option('display.width', None)
 pd.set_option('display.max_rows', None)
 
-print(df)
 
 # GRF 1 - TENSÃO NO PERIODO TOTAL #
 fig, ax1 = plt.subplots(figsize=(10,5), label='Tensões')
@@ -38,10 +38,18 @@ ax2 = sns.catplot(data=df, x="Dia", y='Vr [V]', kind="box")
 # GRF 3 - TENSÃO DIÁRIA #
 filt = (df['Registro'].dt.day == 2)
 sexta = df.loc[filt]
-sexta['Timestamp'] = pd.to_datetime(sexta['Registro']).values.astype(np.int64)//10*9
+sexta['hora'] = sexta['Registro'].dt.time
+sexta['hora'] = sexta['hora'].astype(str)
 
-interp = interpolate.interp1d(sexta['Timestamp'], sexta['Vr [V]'], kind='nearest')
-fig, ax2 = plt.subplots(figsize=(7,5), label='Sexta 2022-12-02')
+# g = interpolate.interp1d(sexta['Registro'], sexta['Vr [V]'], kind='nearest')
+# ynew = g(sexta['Timestamp'])
+fig2, ax3 = plt.subplots(figsize=(10,5), label='Tensão Diária')
+ax3.plot(sexta['hora'],sexta['S [VA]']/100, color="green", drawstyle="steps-post")
+ax3.tick_params(axis='x', labelrotation = 90)
+ax3.set_xlabel('HORA')
+ax3.set_ylabel('[MVA]')
+ax3.grid(True)
 
+print(sexta)
 
 plt.show()

@@ -29,8 +29,7 @@ ax1.set_ylabel('Voltagem')
 # GRF 2 - BOXPLOT NO PERIODO TOTAL #
 ax2 = sns.catplot(data=df, x="Dia", y='Vr [V]', kind="box")
 
-# GRF 3 - TENSÃO DIÁRIA #
-# fig, ax2 = plot.subplot(figsize=(7,5), label='Tensões Diárias')
-df["Registro"].plot()
+fig, ax2 = plot.subplot(figsize=(7,5), label='Tensões Diárias')
+ax2.plot
 
 plt.show()

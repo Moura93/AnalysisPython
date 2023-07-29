@@ -43,16 +43,13 @@ sexta['hora'] = sexta['hora'].astype(str)
 
 # g = interpolate.interp1d(sexta['Registro'], sexta['Vr [V]'], kind='nearest')
 # ynew = g(sexta['Timestamp'])
-fig3, ax3 = plt.subplots(figsize=(10,5), label='Tensão Diária')
+fig2, ax3 = plt.subplots(figsize=(10,5), label='Tensão Diária')
 ax3.plot(sexta['hora'],sexta['S [VA]']/100, color="green", drawstyle="steps-post")
 ax3.tick_params(axis='x', labelrotation = 90)
 ax3.set_xlabel('HORA')
 ax3.set_ylabel('[MVA]')
 ax3.grid(True)
 
-# GRF 4 - HISTOGRAMA TENSÃO #
-fig4, ax4 = plt.subplots(figsize=(10,5), label='Histograma Tensão')
-ax4.hist(df['Vr [V]'], bins=30, range=(185,245), density=True, histtype='bar', rwidth=0.8)
-
+print(sexta)
 
 plt.show()

@@ -1,0 +1,48 @@
+projeto de conclusão de disciplina
+en246 intro eólica 2022.1
+
+Prezadas(os) Alunas(os), seguem as instruções finais para a realização do
+projeto de conclusão da disciplina, cujo objetivo é o desenho preliminar
+da pá de um aerogerador de eixo horizontal e a simulação da curva de
+potência mecânica correspondente à turbina eólica:
+
+1. Quanto à primeira parte do projeto (correspondente à identificação da
+velocidade mais energética para a qual a pá do aerogerador deverá ser
+desenhada), devem ser empregados os dados observacionais contidos no
+arquivo T.mat em anexo, dados que dizem respeito a magnitudes da
+velocidade do vento (em m/s) observadas por uma torre anemométrica;
+
+2. Quanto à segunda parte do projeto (correspondente à definição da
+geometria da pá), informo o seguinte:
+    a) Deve-se empregar o método baseado em constant lift, i.e., deve-se
+    desenhar a pá com vistas a um ângulo de ataque ótimo;
+    b) O rotor deve estar composto por 3 pás;
+    c) A potência nominal do aerogerador deve ser de 400 kW;
+    d) A velocidade angular do rotor aerodinâmico deve ser de 35 rpm;
+    e) O perfil aerodinâmico deve ser o NACA 63-415 (ver arquivo naca63-
+    415.txt em anexo);
+    f) A pá deve ser discretizada em 40 seções.
+
+3. Quanto à terceira parte do projeto (correspondente à simulação da
+curva de potência mecânica da turbina eólica), deve ser considerado
+apenas o intervalo de velocidades desde cut-in à nominal;
+
+4. Quanto à apresentação escrita do projeto, até o dia anterior ao
+agendado para a apresentação oral do projeto, cada grupo deverá enviar,
+por e-mail, ao professor, um arquivo em formato PDF com, no máximo, 10
+páginas (exceto pelos apêndices e eventuais anexos), contendo:
+    a) Resumo (de 1 página);
+    b) Introdução (com os contextos geral e específico do projeto e os
+    objetivos);
+    c) Metodologia (de forma geral) e os modelos específicos (com os
+    quais a metodologia foi implementada);
+    d) Dados empregados, apresentados em tabelas e/ou gráficos;
+    e) Resultados, discussão sobre os resultados, conclusões e
+    perspectivas quanto a aprimoramentos futuros;
+    f) Scripts (nos apêndices);
+    g) Anexos (se, necessários)
+
+5. Quanto à apresentação oral do projeto, cada grupo terá, no
+máximo, 15 minutos e os slides deverão compreender o objetivo do projeto,
+a metodologia, os modelos, os dados, os resultados, as conclusões e
+perspectivas quanto a aprimoramentos futuros.

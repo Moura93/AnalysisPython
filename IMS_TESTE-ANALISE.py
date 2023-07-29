@@ -5,8 +5,8 @@ import numpy as np
 from scipy import interpolate
 import seaborn as sns
 
-df = pd.read_excel(r"C:\Users\Felipe\DIAGNOSTICOS.xlsx")
-# df = pd.read_excel(r"C:\Users\fmour\Documents\MEGAsync Downloads\Documentos\Mestrado\DIAGNOSTICOS.xlsx")
+#df = pd.read_excel(r"C:\Users\Felipe\DIAGNOSTICOS.xlsx")
+df = pd.read_excel(r"C:\Users\fmour\Documents\MEGAsync Downloads\Documentos\Mestrado\DIAGNOSTICOS.xlsx")
 
 df['Dia'] = pd.to_datetime(df['Registro']).dt.day_name()
 

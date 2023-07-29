@@ -2,11 +2,17 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
+from scipy import interpolate
 import seaborn as sns
 
 df = pd.read_excel(r"C:\Users\Felipe\DIAGNOSTICOS.xlsx")
 
-df['Dia'] = df['Registro'].dt.day
+df['Dia'] = pd.to_datetime(df['Registro']).dt.day_name()
+
+pd.set_option('display.max_columns', None)
+pd.set_option('display.max_colwidth', None)
+pd.set_option('display.width', None)
+pd.set_option('display.max_rows', None)
 
 print(df)
 
@@ -29,7 +35,13 @@ ax1.set_ylabel('Voltagem')
 # GRF 2 - BOXPLOT NO PERIODO TOTAL #
 ax2 = sns.catplot(data=df, x="Dia", y='Vr [V]', kind="box")
 
-fig, ax2 = plot.subplot(figsize=(7,5), label='Tensões Diárias')
-ax2.plot
+# GRF 3 - TENSÃO DIÁRIA #
+filt = (df['Registro'].dt.day == 2)
+sexta = df.loc[filt]
+sexta['Timestamp'] = pd.to_datetime(sexta['Registro']).values.astype(np.int64)//10*9
+
+interp = interpolate.interp1d(sexta['Timestamp'], sexta['Vr [V]'], kind='nearest')
+fig, ax2 = plt.subplots(figsize=(7,5), label='Sexta 2022-12-02')
+
 
 plt.show()

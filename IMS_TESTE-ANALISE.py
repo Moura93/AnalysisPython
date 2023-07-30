@@ -5,7 +5,7 @@ import numpy as np
 from scipy import interpolate
 import seaborn as sns
 
-df = pd.read_excel(r"C:\Users\Felipe\DIAGNOSTICOS.xlsx")
+df = pd.read_excel(r"C:\Users\fmour\Documents\MEGAsync Downloads\Documentos\Mestrado\DIAGNOSTICOS.xlsx")
 
 df['Dia'] = pd.to_datetime(df['Registro']).dt.day_name()
 
@@ -40,8 +40,9 @@ filt = (df['Registro'].dt.day == 2)
 sexta = df.loc[filt]
 sexta['Timestamp'] = pd.to_datetime(sexta['Registro']).values.astype(np.int64)//10*9
 
-interp = interpolate.interp1d(sexta['Timestamp'], sexta['Vr [V]'], kind='nearest')
-fig, ax2 = plt.subplots(figsize=(7,5), label='Sexta 2022-12-02')
-
+g = interpolate.interp1d(sexta['Timestamp'], sexta['Vr [V]'], kind='nearest')
+ynew = g(sexta['Timestamp'])
+fig2, ax3 = plt.subplots(figsize=(10,5), label='Tensão Diária')
+ax3.plot(sexta['Timestamp'],ynew)
 
 plt.show()

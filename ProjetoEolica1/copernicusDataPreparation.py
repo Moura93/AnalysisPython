@@ -2,7 +2,7 @@ import xarray as xr
 import pandas as pd
 
 # Extrair as variáveis de interesse
-dataset = xr.open_dataset("Velocidades_2010-2015.nc")
+dataset = xr.open_dataset("Velocidade_1994-2003.nc")
 u = dataset['u']
 v = dataset['v']
 
@@ -38,7 +38,7 @@ df = pd.DataFrame(dados_extraidos)
 # Converter a coluna 'datetimes' para um objeto datetime
 df['datetimes'] = pd.to_datetime(df['datetimes'])
 
-df.to_excel('era5.xlsx')
+df.to_excel('Velocidades_1994-2003.xlsx')
 
 
 
